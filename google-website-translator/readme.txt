@@ -1,10 +1,10 @@
 === Prisna GWT - Google Website Translator  ===
 Contributors: Prisna
-Tags: translate wordpress, multilingual, translate, translation, google translate, bilingual, automatic translate, google website translator, google translator, google language translator, language translate, language translator, multi language, translate, translation
+Tags: translate wordpress, multilingual, translate, translation, google translate
 Requires PHP: 5.6
-Stable tag: 1.4.12
+Stable tag: 1.4.13
 Requires at least: 3.3
-Tested up to: 6.6
+Tested up to: 6.7
 License: GPL2+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
