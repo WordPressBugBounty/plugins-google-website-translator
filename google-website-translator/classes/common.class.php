@@ -518,6 +518,18 @@ class PrisnaGWTCommon {
 	
 	}
 
+	public static function escapeHtmlTextareaField($_string) {
+		
+		return str_replace('</textarea>', '', $_string);
+		
+	}
+	
+	public static function escapeHtmlTextField($_string) {
+
+		return str_replace('"', '', $_string);
+
+	}
+
 	public static function escapeHtmlBrackets($_string) {
 
 		if (is_string($_string)) {

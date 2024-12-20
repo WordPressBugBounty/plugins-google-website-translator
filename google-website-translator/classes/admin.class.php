@@ -320,6 +320,9 @@ class PrisnaGWTAdminForm extends PrisnaGWTAdminBaseForm {
 		$settings = PrisnaGWTConfig::getDefaults();
 		$result = array();
 
+		$textarea_fields = array('custom_css', 'on_before_load', 'on_after_load', 'flags_container_template', 'flag_template', 'import', 'export');
+		$text_fields = array('exclude_selector', 'google_analytics_code');
+
 		foreach ($settings as $key => $setting) {
 			
 			$value = PrisnaGWTCommon::getVariable($setting['id'], 'POST');
@@ -350,6 +353,12 @@ class PrisnaGWTAdminForm extends PrisnaGWTAdminBaseForm {
 						$value = trim(PrisnaGWTCommon::cleanId($value));
 					else if ($key == 'translated_to_class')
 						$value = trim(PrisnaGWTCommon::cleanId($value, '-', false));
+
+					if (in_array($key, $textarea_fields))
+						$value = PrisnaGWTCommon::escapeHtmlTextareaField($value);
+
+					if (in_array($key, $text_fields))
+						$value = PrisnaGWTCommon::escapeHtmlTextField($value);
 
 					$unset_template = PrisnaGWTCommon::endsWith($key, '_template') && PrisnaGWTCommon::stripBreakLinesAndTabs($value) == PrisnaGWTCommon::stripBreakLinesAndTabs($setting['value']);
 
