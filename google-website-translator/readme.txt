@@ -2,9 +2,9 @@
 Contributors: Prisna
 Tags: translate wordpress, multilingual, translate, translation, google translate
 Requires PHP: 5.6
-Stable tag: 1.4.14
+Stable tag: 1.4.15
 Requires at least: 3.3
-Tested up to: 6.7
+Tested up to: 6.8
 License: GPL2+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -274,14 +274,16 @@ class PrisnaGWTAdminForm extends PrisnaGWTAdminBaseForm {
 		if ($value === false || PrisnaGWTValidator::isEmpty($value))
 			return null;
 		
-		$decode = base64_decode($value);
+		$decode = @base64_decode($value);
 		
 		if ($decode === false) {
 			self::_set_imported_status(false);
 			return false;
 		}
+
+		$to_unserialize = preg_match('/O:\d+:(["\'])[^\1]+?\1:\d+:{/i', $decode) ? '' : $decode;
 		
-		$unserialize = preg_match('/O:\d+:(["\'])[^\1]+?\1:\d+:{/i', $decode) ? '' : @unserialize($decode);
+		$unserialize = @unserialize($to_unserialize, array('allowed_classes' => false));		
 
 		if (!is_array($unserialize)) {
 			self::_set_imported_status(false);
